@@ -8,6 +8,9 @@ Object to manage a 595 shift register in a very Opp kinda way.
 This uses the 595 as a display/gate device mainly.  I wrote this for
 my Eurorack Arduino projects.  Outside of that, there may be some limitations.
 You can set up two objects with only 4 pins by reusing the clock and latch pins.
+RA595 reg1(10,11,12);
+RA595 reg2(10,11,9);
+Clock and latch don't need to be diffrent, just the data pin.
 
 Features:
     all on, all off
@@ -47,9 +50,9 @@ class RA595 {
         void shiftLeft(unsigned int amt);
         // Bitwise right shift
         void shiftRight(unsigned int amt);
-        // This rotates all bit left and what falls off the shift is added back on the other end;
+        // This rotates all bits left and what falls off the shift is added back on the other end;
         void wrapLeft(unsigned int amt);
-        // This rotates all bit right and what falls off the shift is added back on the other end;
+        // This rotates all bits right and what falls off the shift is added back on the other end;
         void wrapRight(unsigned int amt);
         // Simple 7 Segment Display Driver.  0-15 displays Hex 0-F
         void ssd(int digitToDisplay);
