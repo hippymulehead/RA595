@@ -23,6 +23,11 @@ void RA595::setByte(byte byteToSet) {
     _reg = byteToSet;
 }
 
+void RA595::setByteNow(byte byteToWrite) {
+    _reg = byteToWrite;
+    write();
+}
+
 void RA595::write() {
     if (_rotateAmt != 0) {
         _treg = rotator(_rotateAmt);
@@ -36,6 +41,11 @@ void RA595::write() {
 
 void RA595::setBit(int bitNumber, int value) {
     bitWrite(_reg, bitNumber, value);
+}
+
+void RA595::setBitNow(int bitNumberToWrite, int value) {
+    bitWrite(_reg, bitNumberToWrite, value);
+    write();
 }
 
 void RA595::setRandomReadPin(int pin) {

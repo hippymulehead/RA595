@@ -36,8 +36,11 @@ class RA595 {
         void allOn();
         // Send an entire byte
         void setByte(byte byteToSet);
+        void setByteNow(byte byteToWrite);
         // Set a single bit to a value
         void setBit(int bitNumber, int value);
+        // Set a single bit to a value, includes a write
+        void setBitNow(int bitNumberToWrite, int value);
         // Set what analog pin to pull random seeds from I use A6
         void setRandomReadPin(int pin);
         // Randomnly sets a single pin high
