@@ -36,6 +36,7 @@ class RA595 {
         void allOn();
         // Send an entire byte
         void setByte(byte byteToSet);
+        // Send an entire byte and write it now.
         void setByteNow(byte byteToWrite);
         // Set a single bit to a value
         void setBit(int bitNumber, int value);
