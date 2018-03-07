@@ -1,7 +1,7 @@
 {
   "name": "RA595",
-  "keywords": "Shift Register",
-  "description": "Arduino Library for 595 Shift Registers)",
+  "keywords": "shift,register",
+  "description": "Arduino Library for 595 Shift Registers",
   "repository":
   {
     "type": "git",
