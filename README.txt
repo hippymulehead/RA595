@@ -8,7 +8,7 @@ my Eurorack Arduino projects.  Outside of that, there may be some limitations.
 You can set up two objects with only 4 pins by reusing the clock and latch pins.
 RA595 reg1(10,11,12);
 RA595 reg2(10,11,9);
-Clock and latch don't need to be diffrent, just the data pin.
+Clock and latch don't need to be different, just the data pin.
 
 Features:
     all on, all off
@@ -18,7 +18,7 @@ Features:
         (When the register is written it updates the whole byte at once
         This keeps the output in sync for timing perposes)
     a random function
-    since the obect stores the value of the register you can get that value at any time.
+    since the object stores the value of the register you can get that value at any time.
     shiftLeft, shiftRight
     wrapLeft, wrapRight (a rotating shift)
     7 Segment Display driver in a single call.

@@ -3,7 +3,7 @@
 #include <Arduino.h>
 
 /*
-(C) 2017 Mike Romans of Romans Audio
+(C) 2018 Mike Romans of Romans Audio
 Object to manage a 595 shift register in a very Opp kinda way.
 This uses the 595 as a display/gate device mainly.  I wrote this for
 my Eurorack Arduino projects.  Outside of that, there may be some limitations.
@@ -64,23 +64,23 @@ class RA595 {
         void write();
 
     protected:
-        int _latchPin;
-        int _clockPin;
-        int _dataPin;
-        byte _reg;
-        int _rndPin;
-        unsigned int _rotateAmt = 0;
-        byte _treg = 0;
-        int _ssdArray[16] = {252, 96, 218, 242, 102, 182, 190, 224, 254, 246, 238, 62, 156, 122, 158, 142};
+        int m_latchPin;
+        int m_clockPin;
+        int m_dataPin;
+        byte m_reg;
+        int m_rndPin;
+        unsigned int m_rotateAmt = 0;
+        byte m_treg = 0;
+        int m_ssdArray[16] = {252, 96, 218, 242, 102, 182, 190, 224, 254, 246, 238, 62, 156, 122, 158, 142};
 
         byte rotator(unsigned int amt) {
-            byte _t = _reg;
+            byte m_t = m_reg;
             for (size_t x = 0; x < amt; x++) {
-                int _x = bitRead(_t, 7);
-                _t = _t << 1;
-                bitWrite(_t, 0, _x);
+                int m_x = bitRead(m_t, 7);
+                m_t = m_t << 1;
+                bitWrite(m_t, 0, m_x);
             }
-            return _t;
+            return m_t;
         }
 };
 #endif
