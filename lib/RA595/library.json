@@ -7,15 +7,6 @@
     "type": "git",
     "url": "https://github.com/hippymulehead/RA595.git"
   },
-  "authors":
-  [
-    {
-      "name": "Michael Romans",
-      "email": "mromans@romansaudio.com",
-      "url": "https://github.com/hippymulehead",
-      "maintainer": true
-    }
-  ],
   "version": "1.0.0",
   "frameworks": "arduino",
   "platforms": "*"
