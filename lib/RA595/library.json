@@ -1,13 +1,18 @@
 {
-  "name": "RA595",
-  "keywords": "shift,register",
-  "description": "Arduino Library for 595 Shift Registers",
-  "repository":
-  {
+"name": "RA595",
+"frameworks": "Arduino",
+"keywords": "shift,register,595",
+"description": "Arduino lib for the 595 shift registers",
+"url": "https://github.com/hippymulehead/RA595",
+"authors":
+[
+{
+        "name": "Michael Romans"
+}
+],
+"repository":
+{
     "type": "git",
     "url": "https://github.com/hippymulehead/RA595.git"
-  },
-  "version": "1.0.0",
-  "frameworks": "arduino",
-  "platforms": "*"
+}
 }
