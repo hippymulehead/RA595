@@ -65,9 +65,6 @@ class RA595 {
         void write();
 
     protected:
-        int m_latchPin;
-        int m_clockPin;
-        int m_dataPin;
         DigitalOut LatchPin;
         DigitalOut ClockPin;
         DigitalOut DataPin;
