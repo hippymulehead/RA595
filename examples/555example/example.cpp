@@ -25,7 +25,6 @@ void setup() {
 }
 
 void loop() {
-    // wrapLeft()
     for(int i = 0; i < 100; i++) {
         demoReg.wrapRight(1);
         demoReg.write();
@@ -36,6 +35,18 @@ void loop() {
         demoReg.wrapLeft(1);
         demoReg.write();
         delay(100);
+    }
+    for(int i = 0; i < 10; i++) {
+        for(int x = 0; x < 7; x++) {
+            demoReg.wrapRight(1);
+            demoReg.write();
+            delay(100);
+        }
+        for(int x = 0; x < 7; x++) {
+            demoReg.wrapLeft(1);
+            demoReg.write();
+            delay(100);
+        }
     }
     // allOn()
     demoReg.allOn();
