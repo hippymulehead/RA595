@@ -2,12 +2,9 @@
 #include <RA595.h>
 
 RA595::RA595(int latchPin, int clockPin, int dataPin) {
-    m_latchPin = latchPin;
-    m_clockPin = clockPin;
-    m_dataPin = dataPin;
-    pinMode(m_latchPin, OUTPUT);
-    pinMode(m_clockPin, OUTPUT);
-    pinMode(m_dataPin, OUTPUT);
+    LatchPin.setup(latchPin,0);
+    ClockPin.setup(clockPin,0);
+    DataPin.setup(dataPin,0);
     m_reg = 0;
 }
 
@@ -34,9 +31,9 @@ void RA595::write() {
     } else {
         m_treg = m_reg;
     }
-    digitalWrite(m_latchPin, LOW);
-    shiftOut(m_dataPin, m_clockPin, LSBFIRST, m_treg);
-    digitalWrite(m_latchPin, HIGH);
+    LatchPin = LOW;
+    RAShiftOut(LSBFIRST, m_treg);
+    LatchPin = HIGH;
 }
 
 void RA595::setBit(int bitNumber, int value) {

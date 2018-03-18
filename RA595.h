@@ -1,6 +1,7 @@
 #define RA595_h
 #ifdef RA595_h
 #include <Arduino.h>
+#include <RAGPIO.h>
 
 /*
 (C) 2018 Mike Romans of Romans Audio
@@ -67,6 +68,9 @@ class RA595 {
         int m_latchPin;
         int m_clockPin;
         int m_dataPin;
+        DigitalOut LatchPin;
+        DigitalOut ClockPin;
+        DigitalOut DataPin;
         byte m_reg;
         int m_rndPin;
         unsigned int m_rotateAmt = 0;
@@ -81,6 +85,18 @@ class RA595 {
                 bitWrite(m_t, 0, m_x);
             }
             return m_t;
+        }
+    private:
+        void RAShiftOut(uint8_t bitOrder, uint8_t val) {
+        	uint8_t i;
+        	for (i = 0; i < 8; i++)  {
+        		if (bitOrder == LSBFIRST)
+                    DataPin = !!(val & (1 << i));
+        		else
+                    DataPin = !!(val & (1 << (7 - i)));
+        		ClockPin = HIGH;
+                ClockPin = LOW;
+        	}
         }
 };
 #endif
