@@ -2,8 +2,8 @@
     "name": "RA595",
     "frameworks": "Arduino",
     "keywords": "shift,register,595",
-    "description": "Arduino lib for the 595 shift registers",
-    "version": "1.0.2",
+    "description": "Arduino lib for the 595 shift registers using RAGPIO",
+    "version": "1.1.0",
     "url": "https://github.com/hippymulehead/RA595",
     "authors":
     [
@@ -12,6 +12,10 @@
             "maintainer": true
         }
     ],
+    "dependencies": {
+        "name": "RAGPIO",
+        "version": ">=1.1.0"
+    },
     "repository":
     {
         "type": "git",

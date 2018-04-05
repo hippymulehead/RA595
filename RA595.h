@@ -1,6 +1,7 @@
 #define RA595_h
 #ifdef RA595_h
 #include <Arduino.h>
+#include <RAGPIO.h>
 
 /*
 (C) 2018 Mike Romans of Romans Audio
@@ -35,9 +36,9 @@ class RA595 {
         // Turn on all pins
         void allOn();
         // Send an entire byte
-        void setByte(byte byteToSet);
+        void setByte(uint8_t byteToSet);
         // Send an entire byte and write it now.
-        void setByteNow(byte byteToWrite);
+        void setByteNow(uint8_t byteToWrite);
         // Set a single bit to a value
         void setBit(int bitNumber, int value);
         // Set a single bit to a value, includes a write
@@ -49,7 +50,7 @@ class RA595 {
         // Sets the rotation value of the output.  0-8
         void setRotateAmt(unsigned int rotateAmt);
         // Returns a byte that contains the value of the reg without rotation
-        byte getRegValue();
+        uint8_t getRegValue();
         // Bitwise left shift
         void shiftLeft(unsigned int amt);
         // Bitwise right shift
@@ -64,17 +65,17 @@ class RA595 {
         void write();
 
     protected:
-        int m_latchPin;
-        int m_clockPin;
-        int m_dataPin;
-        byte m_reg;
+        DigitalOut m_latchOut;
+        DigitalOut m_clockOut;
+        DigitalOut m_dataOut;
+        uint8_t m_reg;
         int m_rndPin;
         unsigned int m_rotateAmt = 0;
-        byte m_treg = 0;
+        uint8_t m_treg = 0;
         int m_ssdArray[16] = {252, 96, 218, 242, 102, 182, 190, 224, 254, 246, 238, 62, 156, 122, 158, 142};
 
         byte rotator(unsigned int amt) {
-            byte m_t = m_reg;
+            uint8_t m_t = m_reg;
             for (size_t x = 0; x < amt; x++) {
                 int m_x = bitRead(m_t, 7);
                 m_t = m_t << 1;
