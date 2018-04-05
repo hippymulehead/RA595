@@ -83,5 +83,17 @@ class RA595 {
             }
             return m_t;
         }
+    private:
+        void RAShiftOut(uint8_t bitOrder, uint8_t val) {
+        	uint8_t i;
+        	for (i = 0; i < 8; i++)  {
+        		if (bitOrder == LSBFIRST)
+                    DataPin = !!(val & (1 << i));
+        		else
+                    DataPin = !!(val & (1 << (7 - i)));
+        		ClockPin = HIGH;
+                ClockPin = LOW;
+        	}
+        }
 };
 #endif
